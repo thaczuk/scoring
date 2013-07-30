@@ -7,4 +7,5 @@ Scoring::Application.routes.draw do
   resources :athletes
   resources :events
   resources :competition_categories
+  resources :users
 end
