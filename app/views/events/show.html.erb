@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong> <%= @event.name %>
+</p>
+<p>
+  <strong>Description:</strong> <%= @event.description %>
+</p>
+<p>
+  <strong>Rank by small:</strong> <%= @event.rank_by_small %>
+</p>
+<p>
+  <strong>Event weight:</strong> <%= @event.event_weight %>
+</p>
+<p>
+  <strong>Competition_id:</strong> <%= @event.competition_id %>
+</p>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

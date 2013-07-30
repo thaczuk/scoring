@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First Name:</strong> <%= @athlete.firstname %>
+</p>
+<p>
+  <strong>Last Name:</strong> <%= @athlete.lastname %>
+</p>
+<p>
+  <strong>Gender:</strong> <%= @athlete.gender %>
+</p>
+<p>
+  <strong>Age:</strong> <%= @athlete.age %>
+</p>
+<p>
+  <strong>Height:</strong> <%= @athlete.height %>
+</p>
+<p>
+  <strong>Weight:</strong> <%= @athlete.weight %>
+</p>
+<p>
+  <strong>Affiliation:</strong> <%= @athlete.affiliation %>
+</p>
+<%= link_to 'Edit', edit_athlete_path(@athlete) %> |
+<%= link_to 'Back', athletes_path %>

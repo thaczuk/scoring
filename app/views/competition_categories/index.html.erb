@@ -1,0 +1,21 @@
+<%= render 'shared/header', header: 'Listing competition categories' %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @competition_categories.each do |competition_category| %>
+      <tr>
+        <td><%= competition_category.name %></td>
+        <td><%= link_to 'Show', competition_category  %></td>
+        <td><%= link_to 'Edit', edit_competition_category_path(competition_category) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New competition category', new_competition_category_path %>

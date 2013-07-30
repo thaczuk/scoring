@@ -1,0 +1,25 @@
+<%= form_for(@competition) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :when %>
+    <%= f.text_field :when %>
+  </div>
+  <div class="field">
+    <%= f.label :where %>
+    <%= f.text_field :where %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :competition_type %>
+    <%= f.text_field :competition_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<%= render 'shared/header', header: 'Listing athletes' %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Affiliation</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @athletes.each do |athlete| %>
+      <tr>
+        <td><%= athlete.firstname %></td>
+        <td><%= athlete.lastname %></td>
+        <td><%= athlete.gender %></td>
+        <td><%= athlete.age %></td>
+        <td><%= athlete.height %></td>
+        <td><%= athlete.weight %></td>
+        <td><%= athlete.affiliation %></td>
+        <td><%= link_to 'Show', athlete  %></td>
+        <td><%= link_to 'Edit', edit_athlete_path(athlete) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New athlete', new_athlete_path %>
