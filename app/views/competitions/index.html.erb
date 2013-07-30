@@ -19,10 +19,14 @@
         <td><%= competition.where %></td>
         <td><%= competition.description %></td>
         <td><%= competition.competition_type %></td>
+        <% if logged_in? %>
         <td><%= link_to 'Show', competition %></td>
         <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% if logged_in? %>
 <%= link_to 'New competition', new_competition_path %>
+<% end %>
