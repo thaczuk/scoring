@@ -1,4 +1,6 @@
-<%= render 'welcome' %>
+<% if !logged_in? %>
+  <%= render 'welcome' %>
+<% end %>
 <%= render 'shared/header', header: 'Listing competitions' %>
 <table class="table table-striped">
   <thead>
@@ -19,8 +21,8 @@
         <td><%= competition.where %></td>
         <td><%= competition.description %></td>
         <td><%= competition.competition_type %></td>
+        <td><%= link_to 'More details', competition %></td>
         <% if logged_in? %>
-        <td><%= link_to 'Show', competition %></td>
         <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
         <% end %>
       </tr>
