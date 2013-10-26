@@ -1,0 +1,29 @@
+= render 'shared/header', header: 'Athlete Index'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th First Name
+      %th Last Name
+      %th Gender
+      %th Age
+      %th Height
+      %th Weight
+      %th Affiliation
+
+  %tbody
+    - @athletes.each do |athlete|
+      %tr
+        %td= athlete.firstname
+        %td= athlete.lastname
+        %td= athlete.gender
+        %td= athlete.age
+        %td= athlete.height
+        %td= athlete.weight
+        %td= athlete.affiliation
+        %td= link_to 'Show', athlete
+        - if logged_in?
+          %td= link_to 'Edit', edit_athlete_path(athlete)
+          %td= link_to 'Destroy',  { action: :destroy, id: athlete.id }, method: :delete, data: { confirm: 'Are you sure?' }
+
+= link_to 'New athlete', new_athlete_path

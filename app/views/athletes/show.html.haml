@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th First Name
+      %th Last Name
+      %th Gender
+      %th Age
+      %th Height
+      %th Weight
+      %th Affiliation
+      %td
+      %td
+
+  %tbody
+    %tr
+      %td= @athlete.firstname
+      %td= @athlete.lastname
+      %td= @athlete.gender
+      %td= @athlete.age
+      %td= @athlete.height
+      %td= @athlete.weight
+      %td= @athlete.affiliation
+      %td= link_to 'Edit', edit_athlete_path(@athlete)
+      %td= link_to 'Back', athletes_path

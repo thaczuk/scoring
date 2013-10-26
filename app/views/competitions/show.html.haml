@@ -1,0 +1,51 @@
+%p= notice
+.hero-unit
+  %h1= @competition.name
+  %table.table
+    %thead
+      %tr
+        %th When
+        %th Where
+        %th Description
+      %tr
+        %td= @competition.when
+        %td= @competition.where
+        %td= @competition.description
+
+%div
+  %h4 Events ( #{ @competition.events.count } )
+  %table.table
+    %thead
+      %tr
+        %th(width="30%") Event
+        %th Description
+        %th
+    %tbody
+      -@competition.events.each do |event|
+        %tr
+          %td= event.name
+          %td= event.description
+          %td= link_to 'Results', event_path(event.id)
+
+%div
+  %h4 Athletes ( #{ @competition.athletes.count } )
+  %table.table
+    %thead
+      %tr
+        %th First Name
+        %th Last Name
+        %th Gender
+        %th Category
+        %th Age
+        %th Affiliate
+        %th
+    %tbody
+      -@competition.athletes.each do |athlete|
+        %tr
+          %td= athlete.firstname
+          %td= athlete.lastname
+          %td= athlete.gender
+          %td= athlete.competition_category.name
+          %td= athlete.age
+          %td= athlete.affiliation
+          %td= link_to 'Results', athlete_path(athlete.id)

@@ -34,6 +34,13 @@ class AthletesController < ApplicationController
     end
   end
 
+  def destroy
+    @athlete = Athlete.find(params[:id])
+    @athlete.destroy
+
+    redirect_to athletes_path
+  end
+
 private
     # Use callbacks to share common setup or constraints between actions.
     def set_athlete

@@ -41,7 +41,7 @@ private
     end
 
     # Never trust parameters from the scary internet
-    def competitoin_category_params
+    def competition_category_params
       params.require(:competition_category).permit(:name)
     end
 
