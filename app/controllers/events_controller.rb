@@ -27,6 +27,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     else
@@ -49,6 +50,6 @@ private
 
     # Never trust parameters from the scary internet
     def event_params
-      params.require(:event).permit(:name, :description) # , :rank_by_small, :event_weight)
+      params.require(:event).permit(:name, :description, :rank_by_small, :event_weight, :competition_id)
     end
 end

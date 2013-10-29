@@ -27,7 +27,8 @@ class CompetitionCategoriesController < ApplicationController
   end
 
   def update
-    if @competition_category.update(athlete_params)
+    @competition_category = CompetitionCategory.find(params[:id])
+    if @competition_category.update(competition_category_params)
       redirect_to @competition_category, notice: 'CompetitionCategory was successfully updated.'
     else
       render action: 'edit'
