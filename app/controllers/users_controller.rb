@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @users = User.new(user_params)
+    @user = User.new(user_params)
 
     if @user.save
       redirect_to @user, notice: 'User was successfully created'
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully update.'
+      redirect_to @user, notice: 'User was successfully updated.'
     else
       render action: 'edit'
     end
@@ -42,7 +42,7 @@ private
 
     # Never trust parameters from the scary internet
     def user_params
-      params.require(:user).permit(:username, :email)
+      params.require(:user).permit(:username, :email, :password)
     end
 
 end

@@ -1,16 +1,19 @@
 %p= notice
-.hero-unit
-  %h1= @competition.name
-  %table.table
-    %thead
-      %tr
-        %th When
-        %th Where
-        %th Description
-      %tr
-        %td= @competition.when
-        %td= @competition.where
-        %td= @competition.description
+- if !logged_in?
+  .hero-unit
+    %h1= @competition.name
+    %table.table
+      %thead
+        %tr
+          %th When
+          %th Where
+          %th Description
+        %tr
+          %td= @competition.when
+          %td= @competition.where
+          %td= @competition.description
+- else
+%h2= @competition.name
 
 %div
   %h4 Events ( #{ @competition.events.count } )

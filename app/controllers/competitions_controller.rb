@@ -37,7 +37,7 @@ class CompetitionsController < ApplicationController
     @competition = Competition.find(params[:id])
     @competition.destroy
 
-      redirect_to competitions_path
+    redirect_to competitions_path
   end
 
 private
