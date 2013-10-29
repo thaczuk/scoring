@@ -1,0 +1,7 @@
+= render 'shared/header', header: 'Edit competition'
+= render 'shared/errors', obj: @competition
+= render 'form'
+
+= link_to 'Show', @competition
+|
+= link_to 'Back', competitions_path

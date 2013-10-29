@@ -26,11 +26,19 @@ class CompetitionsController < ApplicationController
   end
 
   def update
+    @competition = Competition.find(params[:id])
     if @competition.update(competition_params)
-      redirect_to @competition, notice: 'Competition was successfully update.'
+      redirect_to @competition, notice: 'Competition was successfully updated.'
     else
       render action: 'edit'
     end
+  end
+
+  def destroy
+    @competition = Competition.find(params[:id])
+    @competition.destroy
+
+    redirect_to competitions_path
   end
 
 private

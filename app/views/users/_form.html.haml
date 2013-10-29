@@ -1,0 +1,15 @@
+= form_for(@user) do |f|
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :role
+    = f.text_field :role
+  .field
+    = f.label :password
+    = f.text_field :password
+  .actions
+    = f.submit

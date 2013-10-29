@@ -1,0 +1,28 @@
+- if !logged_in?
+  = render 'welcome'
+= render 'shared/header', header: 'Listing competitions'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th When
+      %th Where
+      %th Description
+      %th Competition Type
+
+  %tbody
+    -@competitions.each do |competition|
+      %tr
+        %td= competition.name
+        %td= competition.when
+        %td= competition.where
+        %td= competition.description
+        %td= competition.competition_type
+        %td= link_to 'Details', competition
+        - if logged_in?
+          %td= link_to 'Edit', edit_competition_path(competition)
+          %td= link_to 'Destroy',  { action: :destroy, id: competition.id }, method: :delete, data: { confirm: 'Are you sure?' }
+
+- if logged_in?
+  = link_to 'New competition', new_competition_path

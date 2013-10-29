@@ -27,11 +27,19 @@ class AthletesController < ApplicationController
   end
 
   def update
+    @athlete = Athlete.find(params[:id])
     if @athlete.update(athlete_params)
       redirect_to @athlete, notice: 'Athlete was successfully update.'
     else
       render action: 'edit'
     end
+  end
+
+  def destroy
+    @athlete = Athlete.find(params[:id])
+    @athlete.destroy
+
+    redirect_to athletes_path
   end
 
 private

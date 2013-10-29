@@ -1,0 +1,5 @@
+= render 'shared/header', header: 'New event'
+= render 'shared/errors', obj: @event
+= render 'form'
+
+= link_to 'Back', events_path

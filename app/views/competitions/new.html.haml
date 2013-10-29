@@ -1,0 +1,5 @@
+= render 'shared/header', header: 'New competition'
+= render 'shared/errors', obj: @competition
+= render 'form', url: {action: "create"}
+
+= link_to 'Back', competitions_path

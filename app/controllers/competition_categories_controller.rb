@@ -27,7 +27,8 @@ class CompetitionCategoriesController < ApplicationController
   end
 
   def update
-    if @competition_category.update(athlete_params)
+    @competition_category = CompetitionCategory.find(params[:id])
+    if @competition_category.update(competition_category_params)
       redirect_to @competition_category, notice: 'CompetitionCategory was successfully updated.'
     else
       render action: 'edit'
@@ -41,7 +42,7 @@ private
     end
 
     # Never trust parameters from the scary internet
-    def competitoin_category_params
+    def competition_category_params
       params.require(:competition_category).permit(:name)
     end
 
