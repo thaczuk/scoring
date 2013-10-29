@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%table
+  %tr
+    %td
+      %strong Name
+    %td
+      = @event.name
+  %tr
+    %td
+      %strong Description
+    %td
+      = @event.description
+  %tr
+    %td
+      %strong Rank by small
+    %td
+      = @event.rank_by_small
+  %tr
+    %td
+      %strong Event weight
+    %td
+      = @event.event_weight
+  %tr
+    %td
+      %strong Competition Id
+    %td
+      = @event.competition_id
+
+= link_to 'Edit', edit_event_path(@event)
+|
+= link_to 'Back', events_path
+

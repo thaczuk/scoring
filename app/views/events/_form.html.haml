@@ -1,0 +1,18 @@
+= form_for(@event) do |f|
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :rank_by_small
+    = f.text_field :rank_by_small
+  .field
+    = f.label :event_weight
+    = f.text_field :event_weight
+  .field
+    = f.label :competition_id
+    = f.text_field :competition_id
+  .actions
+    = f.submit
