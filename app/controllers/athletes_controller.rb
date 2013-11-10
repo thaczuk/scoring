@@ -24,12 +24,14 @@ class AthletesController < ApplicationController
 
   def show
     @athlete = Athlete.find(params[:id])
+    binding.pry
   end
 
   def update
     @athlete = Athlete.find(params[:id])
+    @competition = Competition.all
     if @athlete.update(athlete_params)
-      redirect_to @athlete, notice: 'Athlete was successfully update.'
+      redirect_to @athlete, notice: 'Athlete was successfully updated.'
     else
       render action: 'edit'
     end
@@ -38,20 +40,13 @@ class AthletesController < ApplicationController
   def destroy
     @athlete = Athlete.find(params[:id])
     @athlete.destroy
-
     redirect_to athletes_path
   end
 
 private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_athlete
-      @athlete = Athlete.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet
     def athlete_params
-      params.require(:athlete).permit(:firstname, :lastname, :gender, :age,
-                                                        :height, :weight, :affiliation)
+      params.require(:athlete).permit(:firstname, :lastname, :gender, :competition_id, :competition_category_id)
     end
 
 end

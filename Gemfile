@@ -28,6 +28,7 @@ group :doc do
 end
 
 group :development do
+  gem 'awesome_print'
   gem 'sqlite3'
   gem 'pry'
   gem "better_errors"

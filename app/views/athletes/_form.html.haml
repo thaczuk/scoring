@@ -7,18 +7,12 @@
     = f.text_field :lastname
   .field
     = f.label :gender
-    = f.text_field :gender
+    = f.select :gender, ['Female', 'Male']
   .field
-    = f.label :age
-    = f.text_field :age
+    = f.label :competition
+    = collection_select(:athlete, :competition_id, Competition.all, :id, :name)
   .field
-    = f.label :height
-    = f.text_area :height
-  .field
-    = f.label :weight
-    = f.text_field :weight
-  .field
-    = f.label :affiliation
-    = f.text_field :affiliation
+    = f.label :competition_category_id
+    = collection_select(:athlete, :competition_category_id, CompetitionCategory.all, :id, :name)
   .actions
     = f.submit

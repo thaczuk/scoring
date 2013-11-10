@@ -24,6 +24,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    #@event_athletes = @event.event_athletes
+    #binding.pry
   end
 
   def update

@@ -1,26 +1,47 @@
 %p#notice= notice
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th First Name
-      %th Last Name
-      %th Gender
-      %th Age
-      %th Height
-      %th Weight
-      %th Affiliation
-      %td
-      %td
-
+%table
   %tbody
     %tr
+      %td
+        %strong First Name
       %td= @athlete.firstname
+    %tr
+      %td
+        %strong Last Name
       %td= @athlete.lastname
+    %tr
+      %td
+        %strong Gender
       %td= @athlete.gender
+    %tr
+      %td
+        %strong Age
       %td= @athlete.age
-      %td= @athlete.height
-      %td= @athlete.weight
-      %td= @athlete.affiliation
-      %td= link_to 'Edit', edit_athlete_path(@athlete)
-      %td= link_to 'Back', athletes_path
+    %tr
+      %td
+        %strong Competition
+      %td= @athlete.competition.name
+    %tr
+      %td
+        %strong Competition Category
+      %td= @athlete.competition_category.name
+
+%td= link_to 'Edit', edit_athlete_path(@athlete)
+|
+%td= link_to 'Back', athletes_path
+
+%div
+  %table.table
+    %thead
+      %tr
+        %th(width="30%") Event
+        %th Result
+        %th Score
+
+    %tbody
+      -@athlete.event_athletes.each do |ea|
+        %tr
+          %td= ea.event.name
+          %td= ea.result
+          %td= ea.score

@@ -31,3 +31,17 @@
 |
 = link_to 'Back', events_path
 
+%div
+  %table.table
+    %thead
+      %tr
+        %th(width="30%") Athlete
+        %th Result
+        %th Score
+
+    %tbody
+      -@event.event_athletes.each do |ea|
+        %tr
+          %td= ea.id
+          %td= ea.result
+          %td= ea.score
