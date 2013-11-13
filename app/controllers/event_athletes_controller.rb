@@ -1,7 +1,7 @@
-class AthletesController < ApplicationController
+class EventAthletesController < ApplicationController
 
   def index
-    @athletes = Athlete.all
+    @event_athletes = EventAthlete.all
   end
 
   def create
@@ -24,7 +24,7 @@ class AthletesController < ApplicationController
 
   def show
     @athlete = Athlete.find(params[:id])
-    #binding.pry
+    @event_athlete = EventAthlete.new(athlete_id: @athlete.id)
   end
 
   def update
@@ -44,9 +44,7 @@ class AthletesController < ApplicationController
   end
 
 private
-    # Never trust parameters from the scary internet
-    def athlete_params
-      params.require(:athlete).permit(:firstname, :lastname, :gender, :competition_id, :competition_category_id)
+    def event_athlete_params
+      params.require(:event_athlete).permit(:result, :score, :event_rank, :athlete_id, :event_id)
     end
-
 end

@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @competition = Competition.find(params[:competition])
 
     if @event.save
       redirect_to @event, notice: 'Event was successfully created'
@@ -16,6 +17,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @competition = Competition.find(params[:competition])
   end
 
   def edit

@@ -40,8 +40,10 @@
         %th Score
 
     %tbody
-      -@athlete.event_athletes.each do |ea|
-        %tr
-          %td= ea.event.name
-          %td= ea.result
-          %td= ea.score
+      -@athlete.events.each do |event|
+        - ea = EventAthlete.where(athlete_id: @athlete.id, event_id: event.id)
+        - binding.pry
+        %td= event.name
+        %td= ea.score
+        %td= ea.result
+

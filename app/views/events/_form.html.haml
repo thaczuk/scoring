@@ -12,7 +12,7 @@
     = f.label :event_weight
     = f.text_field :event_weight
   .field
-    = f.label :competition_id
-    = f.text_field :competition_id
+    = f.label :competition
+    = collection_select(:athlete, :competition_id, Competition.all, :id, :name)
   .actions
     = f.submit

@@ -1,0 +1,21 @@
+= render 'shared/header', header: 'EventAthletes Index'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th First Name
+      %th Last Name
+      %th Event
+      %th Result
+      %th Score
+      %th Event Rank
+
+  %tbody
+    - @event_athletes.each do |ea|
+      %tr
+        %td= ea.athlete.firstname
+        %td= ea.athlete.lastname
+        %td= ea.event_id
+        %td= ea.result
+        %td= ea.score
+        %td= ea.event_rank

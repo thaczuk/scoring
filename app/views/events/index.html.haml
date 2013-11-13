@@ -2,6 +2,7 @@
 %table.table.table-striped
   %thead
     %tr
+      %th Id
       %th Name
       %th Description
       %th Rank by small
@@ -11,6 +12,7 @@
   %tbody
     - @events.each do |event|
       %tr
+        %td= event.id
         %td= event.name
         %td= event.description
         %td= event.rank_by_small
